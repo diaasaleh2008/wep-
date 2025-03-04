@@ -64,8 +64,8 @@
             gap: 15px;
         }
 
-              /* زر القائمة للهواتف */
-              .menu-icon {
+                     /* زر القائمة للهواتف */
+                     .menu-icon {
             display: none;
             font-size: 24px;
             cursor: pointer;
@@ -74,43 +74,78 @@
 
         /* استجابة للهواتف */
         @media (max-width: 768px) {
-            .nav {
-                display: none; /* إخفاء القائمة افتراضيًا */
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                background: #f4c842;
-                width: 100%;
-                text-align: center;
-            }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        background: #f4c842;
+        text-align: center;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+    }
 
-            .nav.active {
-                display: flex; /* عرض القائمة عند إضافة الكلاس active */
-            }
+    .nav.active {
+        height: auto;
+        padding: 10px 0;
+    }
 
-            .menu-icon {
-                display: block;
-                font-size: 24px;
-                cursor: pointer;
-                margin-left: 20px;
-            }
-        }
-        
-        /* ===== تنسيق المحتوى ===== */
+    .menu-icon {
+        display: block;
+    }
+}
+
         .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+            background: white;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px;
-            text-align: center;
         }
 
+        .section img {
+            width: 50%;
+            height: 50%;
+            border-radius: 5px;
+        }
+
+        .info {
+            background: #f4c842;
+            width: 100%;
+            text-align: right;
+            padding: 10px;
+        }
+
+        
+        /* ===== تنسيق المحتوى ===== */
+        .container {
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    width: 30%; /* يجعل العنصر يأخذ ثلث العرض */
+    min-width: 250px; /* يحدد الحد الأدنى لحجم العنصر */
+}
         .resorts {
             width: 90%;
             margin: 20px auto;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             gap: 20px; /* تباعد بين المربعات */
         }
 
@@ -226,6 +261,22 @@
                 text-align: center;
             }
         }
+        @media (max-width: 1024px) {
+    .resorts {
+        flex-wrap: wrap;
+    }
+    
+    .resort {
+        width: 45%; /* يعرض منتجعين في كل صف على الأجهزة المتوسطة */
+    }
+}
+
+@media (max-width: 768px) {
+    .resort {
+        width: 100%; /* يعرض كل منتجع في سطر منفصل */
+    }
+}
+
     </style>
 </head>
 <body>
@@ -306,7 +357,7 @@
             <div class="footer-section">
                 <h3>تابعنا</h3>
                 <div class="social-icons">
-                   <a href="#"><img src="فيسبوك.png" alt="فيسبوك"></a>
+                    <a href="#"><img src="فيسبوك.png" alt="فيسبوك"></a>
                     <a href="#"><img src="تويتر.png" alt="تويتر"></a>
                     <a href="#"><img src="انستجرام.jpg" alt="إنستجرام"></a>
                 </div>
